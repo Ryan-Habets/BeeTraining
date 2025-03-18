@@ -9,19 +9,12 @@
 </head>
 <body>
     <header>
-        <nav>
-            <ul>
-                <li><a href="index.php">Home</a></li>
-                <li><a href="about.php">About</a></li>
-                <li><a href="contact.php">Contact</a></li>
-            </ul>
-        </nav>
+        <h1>Onderdeel van BeeIdeas</h1>
     </header>
     <div class="logo-container">
-        <img src="logo/logo.png" alt="BeeTraining Logo">
+        <img src="images/logo.png" alt="BeeTraining Logo">
     </div>
     <main>
-        <h1>Welcome to BeeTraining!</h1>
         <p>This is a placeholder for your content.</p>
     </main>
     <footer>

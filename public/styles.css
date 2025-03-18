@@ -8,33 +8,16 @@ body {
 header {
     background-color: #8e8276;
     color: #fff;
-    height: 1.5rem; /* Set a smaller fixed height */
+    height: 2rem; /* Adjust height as needed */
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    font-size: 0.5rem; /* Reduce text size */
+    font-size: 1rem; /* Adjust text size as needed */
     font-weight: 100; /* Ensure text is not thick */
     position: fixed;
     top: 0;
     width: 100%;
-}
-
-nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    gap: 1rem;
-}
-
-nav ul li {
-    display: inline;
-}
-
-nav ul li a {
-    color: #fff;
-    text-decoration: none;
 }
 
 .logo-container {
@@ -45,12 +28,12 @@ nav ul li a {
 }
 
 .logo-container img {
-    height: 3rem; /* Adjust the height of the logo as needed */
+    height: 5rem; /* Increase the height of the logo */
 }
 
 main {
     padding: 2rem;
-    margin-top: 3.5rem; /* Adjust margin to match combined header height */
+    margin-top: 6rem; /* Adjust margin to match combined header height */
 }
 
 footer {
