@@ -3,37 +3,123 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 header {
     background-color: #8e8276;
     color: #fff;
-    height: 2rem; /* Adjust height as needed */
+    height: 3rem; /* Adjust height as needed */
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    font-size: 1rem; /* Adjust text size as needed */
-    font-weight: 100; /* Ensure text is not thick */
-    position: fixed;
+    position: fixed; /* Ensure the header stays at the top */
     top: 0;
-    width: 100%;
+    left: 0;
+    width: 100%; /* Ensure the header takes up the full width */
+    z-index: 1000; /* Ensure the header stays on top */
+}
+
+header h1 {
+    font-size: 1rem; /* Further reduce text size */
+    font-weight: 100; /* Ensure text is not thick */
+    margin: 0; /* Remove default margin */
+    color: #434343;
 }
 
 .logo-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 2rem; /* Adjust margin to position the logo */
+    margin-top: 3rem; /* Adjust margin to position the logo */
 }
 
 .logo-container img {
-    height: 5rem; /* Increase the height of the logo */
+    height: 9rem; /* Increase the height of the logo */
+}
+
+.dropdown {
+    position: absolute;
+    top: 6rem; /* Adjust position as needed */
+    left: 1rem; /* Adjust position as needed */
+}
+
+.dropbtn {
+    background-color: #8e8276;
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #7a6f64;
+}
+
+.divider {
+    width: 100%;
+    height: 2px; /* Thin line */
+    background-color: #000; /* Black color */
+    margin-top: 1rem; /* Adjust margin as needed */
 }
 
 main {
     padding: 2rem;
-    margin-top: 6rem; /* Adjust margin to match combined header height */
+    margin-top: 12rem; /* Adjust margin to match combined header and logo height */
+    width: 100%; /* Ensure the main content takes up the full width */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+.rectangle-box {
+    position: relative; /* Required for the pseudo-element */
+    border: 2px solid #000; /* Thin black border */
+    width: 80%; /* Adjust width as needed */
+    max-width: 100%; /* Ensure the box does not exceed the viewport width */
+    height: 300px; /* Adjust height as needed */
+    margin: 2rem auto; /* Center the box and add margin */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: #fff; /* White background */
+}
+
+.rectangle-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%; /* Start from the middle of the top edge */
+    width: 2px; /* Thin line */
+    height: 100%; /* Full height of the box */
+    background-color: #000; /* Black color */
+    transform: translateX(-50%) rotate(45deg); /* Center and rotate the line */
+    transform-origin: top left;
 }
 
 footer {
@@ -41,7 +127,10 @@ footer {
     color: #fff;
     text-align: center;
     padding: 1rem;
-    position: fixed;
     width: 100%;
     bottom: 0;
+}
+
+.scroll-space {
+    height: 1000px; /* Add more space for scrolling */
 }
