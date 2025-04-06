@@ -10,29 +10,37 @@
 <body>
     <div class="container">
         <header>
-            <h1>Onderdeel van BeeIdeas</h1>
+            <h1>Onderdeel van Bee-Ideas</h1>
         </header>
         <div class="logo-container">
+            <button class="menu-btn" onclick="openMenu()">Menu</button>
             <img src="images/logo.png" alt="BeeTraining Logo">
         </div>
-        <div class="dropdown">
-            <button class="dropbtn">Menu</button>
-            <div class="dropdown-content">
-                <a href="hives.php">BeeHives</a>
-                <a href="#">BeeCare & Feeding</a>
-                <a href="#">Tools & Clothing</a>
-            </div>
-        </div>
-        <div class="divider"></div> <!-- Add this line for the divider -->
+    </div>
+    <div class="divider"></div>
+    <div class="container">
         <main>
             <div class="rectangle-box">
                 <p>introductie webshop</p>
             </div>
-            <div class="scroll-space"></div> <!-- Add this line for scroll space -->
+            <div class="scroll-space"></div>
         </main>
-        <footer>
-            <p>&copy; 2025 BeeTraining. All rights reserved.</p>
-        </footer>
     </div>
+    <footer>
+        <p>&copy; 2025 BeeTraining. All rights reserved.</p>
+    </footer>
+
+    <!-- Slide-Over Menu -->
+    <div id="menu-overlay" class="menu-overlay">
+        <button class="close-btn" onclick="closeMenu()">×</button>
+        <nav class="menu-links">
+            <a href="index.php">Home</a>
+            <a href="hives.php">BeeHives</a>
+            <a href="#">BeeCare & Feeding</a>
+            <a href="#">Tools & Clothing</a>
+        </nav>
+    </div>
+
+    <script src="menu.js"></script>
 </body>
 </html>

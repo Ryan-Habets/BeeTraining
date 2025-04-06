@@ -1,3 +1,4 @@
+/* Base Layout Styles */
 body {
     font-family: 'Helvetica Neue', Arial, sans-serif;
     margin: 0;
@@ -6,120 +7,105 @@ body {
     overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
+.container {
+    width: 100%; /* Ensure the container spans the full width */
+    margin: 0; /* Remove any margins */
+    padding: 0; /* Remove any padding */
+    box-sizing: border-box; /* Include padding and borders in the width */
+    display: flex;
+    flex-direction: column; /* Stack child elements vertically */
+    align-items: center; /* Center child elements horizontally */
+}
+
 header {
     background-color: #8e8276;
     color: #fff;
-    height: 3rem; /* Adjust height as needed */
+    height: 3rem;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: center; /* Center the content horizontally */
     text-align: center;
-    position: fixed; /* Ensure the header stays at the top */
+    position: fixed;
     top: 0;
     left: 0;
-    width: 100%; /* Ensure the header takes up the full width */
-    z-index: 1000; /* Ensure the header stays on top */
+    width: 100%; /* Ensure the header spans the full width */
+    z-index: 1000;
+    padding: 0 1rem; /* Add padding for spacing */
 }
 
 header h1 {
-    font-size: 1rem; /* Further reduce text size */
-    font-weight: 100; /* Ensure text is not thick */
-    margin: 0; /* Remove default margin */
-    color: #434343;
+    font-size: 1rem;
+    font-weight: 100;
+    margin: 0;
+    color: #fff;
 }
 
 .logo-container {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 3rem; /* Adjust margin to position the logo */
+    align-items: center; /* Align the logo and menu button vertically */
+    justify-content: center; /* Center the logo horizontally */
+    margin-top: 4rem; /* Adjust spacing below the header */
+    width: 100%; /* Ensure the container spans the full width */
+    position: relative; /* Allow absolute positioning for the menu button */
 }
 
 .logo-container img {
-    height: 9rem; /* Increase the height of the logo */
+    height: 10rem; /* Restore the original size of the logo */
 }
 
-.dropdown {
-    position: absolute;
-    top: 6rem; /* Adjust position as needed */
-    left: 1rem; /* Adjust position as needed */
-}
-
-.dropbtn {
+.menu-btn {
     background-color: #8e8276;
-    color: white;
-    padding: 10px;
-    font-size: 16px;
+    color: #fff;
     border: none;
+    padding: 0.5rem 1rem; /* Add horizontal padding */
+    font-size: 1rem;
     cursor: pointer;
-}
-
-.dropdown-content {
-    display: none;
+    height: auto; /* Let the button have a smaller height */
+    display: flex;
+    align-items: center; /* Center the text vertically */
+    justify-content: center; /* Center the text horizontally */
     position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
+    left: 1rem; /* Position the button on the far left */
+    top: 50%; /* Align the button vertically with the logo */
+    transform: translateY(-50%); /* Center the button vertically relative to the logo */
 }
 
-.dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-}
-
-.dropdown-content a:hover {
-    background-color: #f1f1f1;
-}
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-.dropdown:hover .dropbtn {
+.menu-btn:hover {
     background-color: #7a6f64;
 }
 
 .divider {
-    width: 100%;
-    height: 2px; /* Thin line */
-    background-color: #000; /* Black color */
-    margin-top: 1rem; /* Adjust margin as needed */
+    position: relative; /* Keep it in the normal document flow */
+    width: 100%; /* Span the full width of the viewport */
+    height: 2px; /* Set the height of the divider */
+    background-color: #000; /* Black color for the divider */
+    margin: 1rem 0; /* Add spacing above and below the divider */
+    padding: 0; /* Remove any padding */
+    box-sizing: border-box; /* Include padding and borders in the width */
 }
 
 main {
     padding: 2rem;
     margin-top: 12rem; /* Adjust margin to match combined header and logo height */
-    width: 100%; /* Ensure the main content takes up the full width */
-    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column; /* Stack child elements vertically */
+    align-items: center; /* Center child elements horizontally */
 }
 
 .rectangle-box {
-    position: relative; /* Required for the pseudo-element */
-    border: 2px solid #000; /* Thin black border */
-    width: 80%; /* Adjust width as needed */
-    max-width: 100%; /* Ensure the box does not exceed the viewport width */
-    height: 300px; /* Adjust height as needed */
-    margin: 2rem auto; /* Center the box and add margin */
+    position: relative;
+    border: 2px solid #000;
+    width: 80%;
+    max-width: 100%;
+    height: 300px;
+    margin: 2rem auto;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    background-color: #fff; /* White background */
-}
-
-.rectangle-box::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 50%; /* Start from the middle of the top edge */
-    width: 2px; /* Thin line */
-    height: 100%; /* Full height of the box */
-    background-color: #000; /* Black color */
-    transform: translateX(-50%) rotate(45deg); /* Center and rotate the line */
-    transform-origin: top left;
+    background-color: #fff;
 }
 
 footer {
@@ -127,10 +113,60 @@ footer {
     color: #fff;
     text-align: center;
     padding: 1rem;
-    width: 100%;
+    position: relative;
     bottom: 0;
+    left: 0;
+    width: 100%; /* Ensure the footer spans the full width */
+    margin: 0; /* Remove any margins */
+    box-sizing: border-box; /* Include padding and borders in the width */
 }
 
-.scroll-space {
-    height: 1000px; /* Add more space for scrolling */
+/* Slide-Over Menu Styles */
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    background-color: rgba(35, 31, 29, 0.9);
+    overflow: hidden;
+    transition: width 0.5s ease, height 0.5s ease; /* Smooth diagonal animation */
+    z-index: 1001;
+}
+
+.menu-overlay.open {
+    width: 100%; /* Expand to full width */
+    height: 100%; /* Expand to full height */
+}
+
+.menu-overlay .close-btn {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 36px;
+    color: #fff;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.menu-overlay .menu-links {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.menu-overlay .menu-links a {
+    display: block;
+    font-size: 24px;
+    color: #fff;
+    text-decoration: none;
+    margin: 10px 0;
+    transition: 0.3s;
+}
+
+.menu-overlay .menu-links a:hover {
+    color: #8e8276;
 }

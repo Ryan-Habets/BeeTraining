@@ -11,7 +11,7 @@
 <body>
     <div class="container">
         <header>
-            <h1>Onderdeel van BeeIdeas</h1>
+            <h1>Onderdeel van Bee-Ideas</h1>
         </header>
         <div class="logo-container">
             <img src="images/logo.png" alt="BeeTraining Logo">
