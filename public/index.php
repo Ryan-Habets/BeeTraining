@@ -32,7 +32,7 @@
 
     <!-- Slide-Over Menu -->
     <div id="menu-overlay" class="menu-overlay">
-        <button class="close-btn" onclick="closeMenu()">×</button>
+        <button class="close-btn" onclick="closeMenu()">←</button> <!-- Left-pointing arrow -->
         <nav class="menu-links">
             <a href="index.php">Home</a>
             <a href="hives.php">BeeHives</a>

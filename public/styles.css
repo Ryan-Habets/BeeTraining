@@ -125,37 +125,39 @@ footer {
 .menu-overlay {
     position: fixed;
     top: 0;
-    left: 0;
-    width: 0;
-    height: 0;
-    background-color: rgba(35, 31, 29, 0.9);
+    left: -100%; /* Start off-screen to the left */
+    width: 100%;
+    height: 100%;
+    background-color: #8e8276; /* Fully opaque black color */
     overflow: hidden;
-    transition: width 0.5s ease, height 0.5s ease; /* Smooth diagonal animation */
+    opacity: 0; /* Start fully transparent */
+    transition: left 0.5s ease, opacity 0.5s ease; /* Smooth slide and fade-in animation */
     z-index: 1001;
 }
 
 .menu-overlay.open {
-    width: 100%; /* Expand to full width */
-    height: 100%; /* Expand to full height */
+    left: 0; /* Slide into view */
+    opacity: 1; /* Fade in */
 }
 
 .menu-overlay .close-btn {
     position: absolute;
     top: 20px;
-    right: 45px;
+    right: 20px;
     font-size: 36px;
     color: #fff;
-    background: none;
-    border: none;
+    background: none; /* Remove background */
+    border: none; /* Remove border */
     cursor: pointer;
+    transform: none; /* Ensure the arrow points left */
 }
 
 .menu-overlay .menu-links {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
+    top: 50%; /* Center the links vertically */
+    left: 2rem; /* Align the links to the left with some padding */
+    transform: translateY(-50%); /* Adjust for vertical centering */
+    text-align: left; /* Align the text to the left */
 }
 
 .menu-overlay .menu-links a {
@@ -164,9 +166,28 @@ footer {
     color: #fff;
     text-decoration: none;
     margin: 10px 0;
-    transition: 0.3s;
+    opacity: 0; /* Start fully transparent */
+    transform: translateY(20px); /* Start slightly below */
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Smooth fade and slide-up animation */
 }
 
-.menu-overlay .menu-links a:hover {
-    color: #8e8276;
+.menu-overlay.open .menu-links a {
+    opacity: 1; /* Fade in */
+    transform: translateY(0); /* Slide into place */
+}
+
+.menu-overlay.open .menu-links a:nth-child(1) {
+    transition-delay: 0.2s; /* Delay for the first link */
+}
+
+.menu-overlay.open .menu-links a:nth-child(2) {
+    transition-delay: 0.4s; /* Delay for the second link */
+}
+
+.menu-overlay.open .menu-links a:nth-child(3) {
+    transition-delay: 0.6s; /* Delay for the third link */
+}
+
+.menu-overlay.open .menu-links a:nth-child(4) {
+    transition-delay: 0.8s; /* Delay for the fourth link */
 }
