@@ -14,7 +14,12 @@
         </header>
         <div class="logo-container">
             <button class="menu-btn" onclick="openMenu()">Menu</button>
-            <img src="images/logo.png" alt="BeeTraining Logo">
+            <!-- Logo links to admin page -->
+            <div class='logo'>
+                <a href="admin.php" title="Go to admin">
+                    <img src="images/logo.png" alt="BeeTraining Logo" style="cursor:pointer;">
+                </a>
+            </div>
         </div>
     </div>
     <div class="divider"></div>

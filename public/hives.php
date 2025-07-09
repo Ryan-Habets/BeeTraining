@@ -1,26 +1,29 @@
-<!-- filepath: c:\xampp\htdocs\Beetraining\BeeTraining\public\hives.php -->
+<!-- filepath: c:\xampp\htdocs\Beetraining\BeeTraining\public\ToolsClothing.php -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BeeTraining Webshop - BeeHives</title>
+    <title>BeeTraining Webshop - Tools & Clothing</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="hives.css">
+    <link rel="stylesheet" href="toolsclothing.css">
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>Onderdeel van Bee-Ideas</h1>
+            <h1>Part of Bee-Ideas</h1>
         </header>
         <div class="logo-container">
+            <!-- Menu button -->
             <button class="menu-btn" onclick="openMenu()">Menu</button>
+            <!-- Logo links to admin page -->
             <div class='logo'>
-                <a href="admin.php" title="Ga naar admin">
+                <a href="admin.php" title="Go to admin">
                     <img src="images/logo.png" alt="BeeTraining Logo" style="cursor:pointer;">
                 </a>
             </div>
+            <!-- Cart button -->
             <button class="view-cart-btn" onclick="openCart()">🛒</button>
+            <!-- Cart popup (shared across all pages) -->
             <div id="cart-popup" class="cart-popup">
                 <div class="cart-header">
                     <h2>Shopping Cart</h2>
@@ -37,13 +40,15 @@
         <h2 class="page-title">BeeHives</h2>
         <div class="divider"></div>
         <main>
-            <h2>Onze Producten</h2>
+            <h2>Our Products</h2>
+            <!-- Product grid: products are loaded dynamically from localStorage -->
             <div class="product-grid" id="product-grid"></div>
         </main>
         <footer>
             <p>&copy; 2025 BeeTraining. All rights reserved.</p>
         </footer>
     </div>
+    <!-- Menu overlay for navigation -->
     <div id="menu-overlay" class="menu-overlay">
         <button class="close-btn" onclick="closeMenu()">←</button>
         <nav class="menu-links">
@@ -54,12 +59,15 @@
         </nav>
     </div>
     <script>
-        function showProducts() {
+    // Show only products for the "tools" category
+    function showProducts() {
+        // Get all products from localStorage
         const products = JSON.parse(localStorage.getItem('products')) || [];
         const grid = document.getElementById('product-grid');
         grid.innerHTML = '';
+        // Filter and display only products for this page's category
         products
-            .filter(prod => prod.category === "hives")
+            .filter(prod => prod.category === "BeeHives")
             .forEach(prod => {
                 grid.innerHTML += `
                     <div class="product-item">
@@ -71,8 +79,10 @@
                 `;
             });
     }
+    // Run showProducts when the page is loaded
     document.addEventListener('DOMContentLoaded', showProducts);
     </script>
+    <!-- Menu and cart scripts (shared across all pages) -->
     <script src="menu.js"></script>
     <script src="cart.js"></script>
 </body>
