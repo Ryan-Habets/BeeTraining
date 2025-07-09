@@ -1,0 +1,193 @@
+/* Base Layout Styles */
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+.container {
+    width: 100%; /* Ensure the container spans the full width */
+    margin: 0; /* Remove any margins */
+    padding: 0; /* Remove any padding */
+    box-sizing: border-box; /* Include padding and borders in the width */
+    display: flex;
+    flex-direction: column; /* Stack child elements vertically */
+    align-items: center; /* Center child elements horizontally */
+}
+
+header {
+    background-color: #8e8276;
+    color: #fff;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center the content horizontally */
+    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%; /* Ensure the header spans the full width */
+    z-index: 1000;
+    padding: 0 1rem; /* Add padding for spacing */
+}
+
+header h1 {
+    font-size: 1rem;
+    font-weight: 100;
+    margin: 0;
+    color: #fff;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center; /* Align the logo and menu button vertically */
+    justify-content: center; /* Center the logo horizontally */
+    margin-top: 4rem; /* Adjust spacing below the header */
+    width: 100%; /* Ensure the container spans the full width */
+    position: relative; /* Allow absolute positioning for the menu button */
+}
+
+.logo-container img {
+    height: 10rem; /* Restore the original size of the logo */
+}
+
+.menu-btn {
+    background-color: #8e8276;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem; /* Add horizontal padding */
+    font-size: 1rem;
+    cursor: pointer;
+    height: auto; /* Let the button have a smaller height */
+    display: flex;
+    align-items: center; /* Center the text vertically */
+    justify-content: center; /* Center the text horizontally */
+    position: absolute;
+    left: 1rem; /* Position the button on the far left */
+    top: 50%; /* Align the button vertically with the logo */
+    transform: translateY(-50%); /* Center the button vertically relative to the logo */
+}
+
+.menu-btn:hover {
+    background-color: #7a6f64;
+}
+
+.divider {
+    position: relative; /* Keep it in the normal document flow */
+    width: 100%; /* Span the full width of the viewport */
+    height: 2px; /* Set the height of the divider */
+    background-color: #000; /* Black color for the divider */
+    margin: 1rem 0; /* Add spacing above and below the divider */
+    padding: 0; /* Remove any padding */
+    box-sizing: border-box; /* Include padding and borders in the width */
+}
+
+main {
+    padding: 2rem;
+    margin-top: 12rem; /* Adjust margin to match combined header and logo height */
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column; /* Stack child elements vertically */
+    align-items: center; /* Center child elements horizontally */
+}
+
+.rectangle-box {
+    position: relative;
+    border: 2px solid #000;
+    width: 80%;
+    max-width: 100%;
+    height: 300px;
+    margin: 2rem auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: #fff;
+}
+
+footer {
+    background-color: #8e8276;
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+    position: relative;
+    bottom: 0;
+    left: 0;
+    width: 100%; /* Ensure the footer spans the full width */
+    margin: 0; /* Remove any margins */
+    box-sizing: border-box; /* Include padding and borders in the width */
+}
+
+/* Slide-Over Menu Styles */
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    left: -100%; /* Start off-screen to the left */
+    width: 100%;
+    height: 100%;
+    background-color: #8e8276; /* Fully opaque black color */
+    overflow: hidden;
+    opacity: 0; /* Start fully transparent */
+    transition: left 0.5s ease, opacity 0.5s ease; /* Smooth slide and fade-in animation */
+    z-index: 1001;
+}
+
+.menu-overlay.open {
+    left: 0; /* Slide into view */
+    opacity: 1; /* Fade in */
+}
+
+.menu-overlay .close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 36px;
+    color: #fff;
+    background: none; /* Remove background */
+    border: none; /* Remove border */
+    cursor: pointer;
+    transform: none; /* Ensure the arrow points left */
+}
+
+.menu-overlay .menu-links {
+    position: absolute;
+    top: 50%; /* Center the links vertically */
+    left: 2rem; /* Align the links to the left with some padding */
+    transform: translateY(-50%); /* Adjust for vertical centering */
+    text-align: left; /* Align the text to the left */
+}
+
+.menu-overlay .menu-links a {
+    display: block;
+    font-size: 24px;
+    color: #fff;
+    text-decoration: none;
+    margin: 10px 0;
+    opacity: 0; /* Start fully transparent */
+    transform: translateY(20px); /* Start slightly below */
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Smooth fade and slide-up animation */
+}
+
+.menu-overlay.open .menu-links a {
+    opacity: 1; /* Fade in */
+    transform: translateY(0); /* Slide into place */
+}
+
+.menu-overlay.open .menu-links a:nth-child(1) {
+    transition-delay: 0.2s; /* Delay for the first link */
+}
+
+.menu-overlay.open .menu-links a:nth-child(2) {
+    transition-delay: 0.4s; /* Delay for the second link */
+}
+
+.menu-overlay.open .menu-links a:nth-child(3) {
+    transition-delay: 0.6s; /* Delay for the third link */
+}
+
+.menu-overlay.open .menu-links a:nth-child(4) {
+    transition-delay: 0.8s; /* Delay for the fourth link */
+}
