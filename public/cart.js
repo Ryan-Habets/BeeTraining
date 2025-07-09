@@ -1,44 +1,38 @@
-let cart = []; // Array to store cart items
+// Laad cart uit localStorage, of begin met een lege array
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-// Function to add an item to the cart
+// Sla cart op in localStorage
+function saveCart() {
+    localStorage.setItem('cart', JSON.stringify(cart));
+}
+
+// Voeg een product toe aan de cart
 function addToCart(productName, price) {
     const existingItem = cart.find(item => item.name === productName);
     if (existingItem) {
-        existingItem.quantity += 1; // Increment quantity if item already exists
+        existingItem.quantity += 1;
     } else {
-        cart.push({ name: productName, price: price, quantity: 1 }); // Add new item
+        cart.push({ name: productName, price: price, quantity: 1 });
     }
+    saveCart();
     alert(`${productName} has been added to your cart.`);
     updateCart();
 }
 
-// Function to open the cart pop-up
-function openCart() {
-    const cartPopup = document.getElementById('cart-popup');
-    const cartOverlay = document.getElementById('cart-overlay');
-    if (cartPopup && cartOverlay) {
-        cartPopup.style.display = 'block'; // Show the cart pop-up
-        cartOverlay.style.display = 'block'; // Show the background overlay
-    }
+// Verwijder een product uit de cart
+function removeFromCart(productName) {
+    cart = cart.filter(item => item.name !== productName);
+    saveCart();
     updateCart();
 }
 
-// Function to close the cart pop-up
-function closeCart() {
-    const cartPopup = document.getElementById('cart-popup');
-    const cartOverlay = document.getElementById('cart-overlay');
-    if (cartPopup && cartOverlay) {
-        cartPopup.style.display = 'none'; // Hide the cart pop-up
-        cartOverlay.style.display = 'none'; // Hide the background overlay
-    }
-}
-
-// Function to update the cart display
+// Update de cart-weergave
 function updateCart() {
     const cartItemsContainer = document.querySelector('.cart-items');
     const cartTotalElement = document.getElementById('cart-total');
-    cartItemsContainer.innerHTML = ''; // Clear existing items
+    if (!cartItemsContainer || !cartTotalElement) return;
 
+    cartItemsContainer.innerHTML = '';
     let total = 0;
     cart.forEach(item => {
         total += item.price * item.quantity;
@@ -51,16 +45,34 @@ function updateCart() {
         cartItemsContainer.appendChild(cartItem);
     });
 
-    cartTotalElement.textContent = total.toFixed(2); // Update total price
+    cartTotalElement.textContent = total.toFixed(2);
 }
 
-// Function to remove an item from the cart
-function removeFromCart(productName) {
-    cart = cart.filter(item => item.name !== productName); // Remove item
+// Toon de cart pop-up
+function openCart() {
+    const cartPopup = document.getElementById('cart-popup');
+    const cartOverlay = document.getElementById('cart-overlay');
+    if (cartPopup && cartOverlay) {
+        cartPopup.style.display = 'block';
+        cartOverlay.style.display = 'block';
+    }
     updateCart();
 }
 
-// Function to handle checkout (placeholder)
+// Sluit de cart pop-up
+function closeCart() {
+    const cartPopup = document.getElementById('cart-popup');
+    const cartOverlay = document.getElementById('cart-overlay');
+    if (cartPopup && cartOverlay) {
+        cartPopup.style.display = 'none';
+        cartOverlay.style.display = 'none';
+    }
+}
+
+// Placeholder voor checkout
 function checkout() {
     alert('Checkout functionality is not implemented yet.');
 }
+
+// Zorg dat de cart altijd wordt getoond bij laden van de pagina
+document.addEventListener('DOMContentLoaded', updateCart);

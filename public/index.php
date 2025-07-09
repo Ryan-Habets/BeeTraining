@@ -36,8 +36,8 @@
         <nav class="menu-links">
             <a href="index.php">Home</a>
             <a href="hives.php">BeeHives</a>
-            <a href="#">BeeCare & Feeding</a>
-            <a href="#">Tools & Clothing</a>
+            <a href="BeeCare.php">BeeCare & Feeding</a>
+            <a href="ToolsClothing.php">Tools & Clothing</a>
         </nav>
     </div>
 

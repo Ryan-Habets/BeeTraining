@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BeeTraining Webshop - BeeHives</title>
+    <title>BeeTraining Webshop - Tools & Clothing</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="hives.css">
+    <link rel="stylesheet" href="toolsclothing.css">
 </head>
 <body>
     <div class="container">
@@ -34,7 +34,7 @@
             </div>
             <div id="cart-overlay" class="cart-overlay" onclick="closeCart()"></div>
         </div>
-        <h2 class="page-title">BeeHives</h2>
+        <h2 class="page-title">Tools & Clothing</h2>
         <div class="divider"></div>
         <main>
             <h2>Onze Producten</h2>
@@ -59,7 +59,7 @@
         const grid = document.getElementById('product-grid');
         grid.innerHTML = '';
         products
-            .filter(prod => prod.category === "hives")
+            .filter(prod => prod.category === "tools")
             .forEach(prod => {
                 grid.innerHTML += `
                     <div class="product-item">
