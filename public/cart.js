@@ -1,12 +1,12 @@
-// Laad cart uit localStorage, of begin met een lege array
+// Load cart from localStorage, or start with an empty array
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-// Sla cart op in localStorage
+// Save cart to localStorage
 function saveCart() {
     localStorage.setItem('cart', JSON.stringify(cart));
 }
 
-// Voeg een product toe aan de cart
+// Add a product to the cart
 function addToCart(productName, price) {
     const existingItem = cart.find(item => item.name === productName);
     if (existingItem) {
@@ -19,14 +19,14 @@ function addToCart(productName, price) {
     updateCart();
 }
 
-// Verwijder een product uit de cart
+// Remove a product from the cart
 function removeFromCart(productName) {
     cart = cart.filter(item => item.name !== productName);
     saveCart();
     updateCart();
 }
 
-// Update de cart-weergave
+// Update the cart display in the popup
 function updateCart() {
     const cartItemsContainer = document.querySelector('.cart-items');
     const cartTotalElement = document.getElementById('cart-total');
@@ -48,7 +48,7 @@ function updateCart() {
     cartTotalElement.textContent = total.toFixed(2);
 }
 
-// Toon de cart pop-up
+// Show the cart popup
 function openCart() {
     const cartPopup = document.getElementById('cart-popup');
     const cartOverlay = document.getElementById('cart-overlay');
@@ -59,7 +59,7 @@ function openCart() {
     updateCart();
 }
 
-// Sluit de cart pop-up
+// Close the cart popup
 function closeCart() {
     const cartPopup = document.getElementById('cart-popup');
     const cartOverlay = document.getElementById('cart-overlay');
@@ -69,10 +69,10 @@ function closeCart() {
     }
 }
 
-// Placeholder voor checkout
+// Placeholder for checkout functionality
 function checkout() {
     alert('Checkout functionality is not implemented yet.');
 }
 
-// Zorg dat de cart altijd wordt getoond bij laden van de pagina
+// Ensure the cart is updated when the page loads
 document.addEventListener('DOMContentLoaded', updateCart);
